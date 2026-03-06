@@ -19,6 +19,12 @@
 
 </div>
 
+<p align="center">
+  <a href="https://mamunexpert.github.io/QuranOlympiadQuizApp/">
+    <img width="1106" height="576" alt="image" src="https://github.com/user-attachments/assets/1c564ede-e1fc-4112-9249-241e8dc56562" />
+
+  </a>
+</p>
 ---
 
 ### নিয়মাবলী (দুই বিভাগের জন্য একই)
