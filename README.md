@@ -17,12 +17,12 @@
   এই রমজানে কুরআনের অর্থ জানি, বুঝি এবং নিজেকে গড়ে তুলি আলোর পথে। 🌙🪔
 </p>
 
-<p align="center">
- <a href="https://mamunexpert.github.io/QuranOlympiadQuizApp/"> <h3>App Live Link</h3>
+<h3 align="center">
+ <a href="https://mamunexpert.github.io/QuranOlympiadQuizApp/">App Live Link
     <img width="1106" height="576" alt="image" src="https://github.com/user-attachments/assets/1c564ede-e1fc-4112-9249-241e8dc56562" />
 
   </a>
-</p>
+</3>
 
 </div>
 
