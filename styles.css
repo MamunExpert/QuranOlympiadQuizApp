@@ -1,0 +1,284 @@
+:root {
+  --primary: #6B48FF;
+  --primary-dark: #4C1D95;
+  --accent: #FFD93D;
+  --green: #34C759;
+  --red: #FF3B30;
+  --card-bg: rgba(255, 255, 255, 0.12);
+  --glass: rgba(255, 255, 255, 0.08);
+  --text: #E0E7FF;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  --ramadan-glow: rgba(255, 217, 61, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Ekushey Lal Sabuj', 'Noto Sans Bengali', sans-serif;
+  background: linear-gradient(135deg, #1e0033, #3f1a6b, #6b48ff);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* রমজান/ইসলামিক সাবটল ব্যাকগ্রাউন্ড প্যাটার্ন */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, var(--ramadan-glow) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, var(--ramadan-glow) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD93D' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* হোম পেজ */
+#home {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 12vw, 5rem);
+  font-weight: 900;
+  color: var(--accent);
+  margin: 0 0 20px;
+  text-shadow: 0 6px 20px rgba(107, 72, 255, 0.5);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.3rem, 5vw, 1.6rem);
+  color: #c4b5fd;
+  margin: 0 0 40px;
+}
+
+.btn-play {
+  position: relative;
+  display: inline-block;
+  padding: 22px 80px 16px 80px;
+  font-family: 'Ekushey Lal Sabuj', 'Noto Sans Bengali', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--accent), #ffcc00);
+  color: #1e0033;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(255, 217, 61, 0.5);
+  transition: all 0.4s ease;
+}
+
+.btn-play:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(255, 217, 61, 0.7);
+}
+
+/* কুইজ পেজ */
+#quiz {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 32px;
+  padding: 30px;
+  margin: 20px auto;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: opacity 0.4s ease; /* ট্রানজিশন যোগ করা হলো */
+}
+
+.progress-container {
+  position: relative;
+  margin: 20px 0;
+  height: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: rgba(255,255,255,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #ffcc00);
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.progress-count {
+  position: absolute;
+  right: 0;
+  top: -28px;
+  background: #e6efe800;
+  color: #34c759;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 20px;
+  border: 1px solid #34c759;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+.question {
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  line-height: 1.2;
+  margin: 0 30px;
+  color: #e0e7ff;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hint-container { text-align: center; margin: 20px 0; transition: opacity 0.5s ease, transform 0.5s ease; }
+.hint-btn { padding: 10px 30px; background: rgba(107, 72, 255, 0.2); color: var(--accent); border: 1px solid var(--accent); border-radius: 30px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+.hint-text { display: none; margin-top: 16px; padding: 16px; background: var(--glass); backdrop-filter: blur(10px); color: #e0e7ff; font-size: 1rem; transition: opacity 0.5s ease, transform 0.5s ease; }
+
+.options { display: grid; gap: 16px; transition: opacity 0.5s ease, transform 0.5s ease; }
+
+.option {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(3 234 255 / 80%);
+  border-radius: 10px;
+  padding: 10px 20px 6px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #e0e7ff;
+  text-align: center;
+}
+
+.option:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(255, 217, 61, 0.3);
+}
+
+.option.correct { border-color: var(--green); background: rgba(52, 199, 89, 0.2); }
+.option.wrong { border-color: var(--red); background: rgba(255, 59, 48, 0.2); }
+
+.explanation { margin: 24px 0; padding: 20px; background: rgba(52, 199, 89, 0.15); color: #e0e7ff; font-size: 1rem; line-height: 1.6; display: none; transition: opacity 0.5s ease, transform 0.5s ease; }
+
+.button-group { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
+
+.btn {font-family: 'Ekushey Lal Sabuj', 'Noto Sans Bengali', sans-serif;  padding: 14px 40px 8px 40px; font-size: 1.3rem; font-weight: 700; border-radius: 50px; cursor: pointer; transition: all 0.3s; min-width: 140px; }
+.btn-primary {  background: linear-gradient(45deg, var(--accent), #ffcc00); color: #1e0033; border: none; }
+.btn-result { background: var(--red); color: white; border: none; }
+
+/* রেজাল্ট স্ক্রিন */
+#result {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 32px;
+  padding: 40px 20px;
+  margin: 20px auto;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+.result-title {
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  color: var(--accent);
+  margin-bottom: 30px;
+  text-shadow: 0 6px 15px rgba(107, 72, 255, 0.4);
+}
+
+.score-circle {
+  width: clamp(160px, 45vw, 220px);
+  height: clamp(160px, 45vw, 220px);
+  background: rgba(255, 217, 61, 0.15);
+  border: 8px solid var(--accent);
+  border-radius: 50%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  font-weight: 900;
+  color: var(--accent);
+  box-shadow: 0 10px 40px rgba(255, 217, 61, 0.4);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(40px, 12vw, 100px);
+  margin: 40px 0;
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+}
+
+.stat-item { text-align: center; }
+.stat-number { font-size: clamp(2.5rem, 9vw, 4rem); font-weight: 900; display: block; margin-bottom: 8px; }
+.stat-correct .stat-number { color: var(--green); }
+.stat-wrong .stat-number { color: var(--red); }
+.stat-label { color: var(--text); opacity: 0.9; }
+
+.hidden { display: none !important; }
+
+/* রমজান ডেকোর — এবার আরও স্পষ্ট */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 217, 61, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(255, 217, 61, 0.25) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23FFD93D' stroke-width='1' opacity='0.12'%3E%3Ccircle cx='20' cy='20' r='8'/%3E%3Ccircle cx='80' cy='30' r='6'/%3E%3Cpath d='M50 10 L55 25 L70 25 L57 35 L62 50 L50 40 L38 50 L43 35 L30 25 L45 25 Z'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23FFD93D' stroke-width='2' opacity='0.08'%3E%3Ccircle cx='60' cy='60' r='40'/%3E%3Ccircle cx='60' cy='60' r='30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 150px 150px, 200px 200px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* হোম পেজে ডেকোরেটিভ বর্ডার */
+#home::before, #home::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: 0.6;
+}
+#home::before { top: 20px; }
+#home::after { bottom: 20px; }
+
+/* কুইজ + রেজাল্টে হালকা লণ্ঠন গ্লো */
+#quiz::before, #result::before {
+  content: '🪔';
+  position: absolute;
+  font-size: 80px;
+  opacity: 0.08;
+  top: 20px;
+  left: 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+#quiz::after, #result::after {
+  content: '🌙';
+  position: absolute;
+  font-size: 60px;
+  opacity: 0.1;
+  bottom: 30px;
+  right: 30px;
+  pointer-events: none;
+  z-index: 0;
+}
