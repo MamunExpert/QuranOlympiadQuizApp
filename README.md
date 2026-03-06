@@ -57,9 +57,7 @@
 [গ্রুপে জয়েন করুন](https://chat.whatsapp.com/JCAYI5xjH2H2ZnfjJ6GoHb?mode=gi_t)
 
 ### আয়োজক
-**Tagleebe din Foundation**
-
-আসুন, কুরআনের সাথে সম্পর্ক আরও গভীর করি — জ্ঞানের মাধ্যমে, বুঝার মাধ্যমে, ভালোবাসার মাধ্যমে। 🤲
+**Tagleebe Din Foundation**
 
 ---
 
