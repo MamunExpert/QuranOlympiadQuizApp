@@ -75,7 +75,7 @@ function loadQuestion() {
 function selectAnswer(idx, q) {
   if (answered) return;
   answered = true;
-   attempted++;
+  attempted++;
 
   const opts = document.querySelectorAll('.option');
   opts[q.correct].classList.add('correct');
@@ -85,11 +85,9 @@ function selectAnswer(idx, q) {
 
   if (idx === q.correct) {
     correctCount++;
-    score += 1; // সঠিক = +১
+    // score এখন আর লাগবে না, কারণ হিসাব showResult()-এ হবে
   } else {
     wrongCount++;
-    score -= 0.05; 
-
     const exp = document.getElementById('explanation');
     exp.textContent = q.explanation || "সঠিক উত্তর: " + q.options[q.correct];
     exp.style.display = 'block';
@@ -97,6 +95,7 @@ function selectAnswer(idx, q) {
 
   document.getElementById('nextBtn').disabled = false;
 }
+
 
 
 
@@ -118,10 +117,17 @@ function showResult() {
   document.getElementById('quiz').classList.add('hidden');
   document.getElementById('result').classList.remove('hidden');
 
+  let answeredQuestions = correctCount + wrongCount;
   let finalPercentage = 0;
-  if (attempted > 0) {
-    finalPercentage = (score / attempted) * 100;
+
+  if (answeredQuestions > 0) {
+    // সঠিক প্রশ্নের শতকরা
+    finalPercentage = correctCount * (100 / answeredQuestions);
+
+    // ভুলের জন্য -০.০৫% কাটা
+    finalPercentage -= (wrongCount * 0.05);
   }
+
   if (finalPercentage < 0) finalPercentage = 0;
   finalPercentage = finalPercentage.toFixed(2);
 
@@ -130,9 +136,11 @@ function showResult() {
   document.getElementById('wrongCount').textContent = wrongCount;
 }
 
+
 function restart() {
   document.getElementById('result').classList.add('hidden');
   startQuiz();
 }
+
 
 
