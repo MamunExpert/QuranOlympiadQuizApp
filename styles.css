@@ -201,7 +201,7 @@ body::before {
 }
 
 .score-circle {
-  width: clamp(190px, 50vw, 280px)
+  width: clamp(190px, 50vw, 280px);
   height: clamp(190px, 50vw, 280px);
   background: rgba(255, 217, 61, 0.15);
   border: 8px solid var(--accent);
@@ -283,5 +283,6 @@ body::before {
   z-index: 0;
 
 }
+
 
 
