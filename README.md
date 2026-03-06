@@ -19,7 +19,7 @@
 
 <h3 align="center">
  <a href="https://mamunexpert.github.io/QuranOlympiadQuizApp/">App Live Link
-    <img width="1106" height="576" alt="image" src="https://github.com/user-attachments/assets/1c564ede-e1fc-4112-9249-241e8dc56562" />
+    <img width="1844" height="833" alt="image" src="https://github.com/user-attachments/assets/9a18c01b-0bd0-4893-9231-aa7bd6df9a6b" />
     App Live Link
   </a>
 </h3>
