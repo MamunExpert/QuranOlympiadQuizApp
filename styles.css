@@ -266,9 +266,9 @@ body::before {
   content: '✨';
   position: absolute;
   font-size: 80px;
-  opacity: 0.08;
-  top: 20px;
-  left: 20px;
+  opacity: 0.1;
+  top: 5px;
+  left: 10px;
   pointer-events: none;
   z-index: 0;
 }
@@ -276,13 +276,14 @@ body::before {
   content: '🌙';
   position: absolute;
   font-size: 60px;
-  opacity: 0.1;
+  opacity: 0.3;
   bottom: 30px;
   right: 30px;
   pointer-events: none;
   z-index: 0;
 
 }
+
 
 
 
